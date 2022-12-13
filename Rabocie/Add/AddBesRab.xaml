@@ -1,0 +1,44 @@
+﻿<Page x:Class="Центр_занятости.Rabocie.Add.AddBesRab"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Центр_занятости.Rabocie.Add"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="AddBesRab">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="163*"/>
+            <ColumnDefinition Width="298*"/>
+            <ColumnDefinition Width="339*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="65"/>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="65"/>
+            <RowDefinition Height="59"/>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="65"/>
+            <RowDefinition Height="38"/>
+            <RowDefinition Height="18"/>
+        </Grid.RowDefinitions>
+        <TextBlock Text="ФИО" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Right"  Margin="0,24,20,25" Height="16" Width="27"/>
+        <TextBox Grid.Column="1" Grid.Row="0" x:Name="fio" Width="200" Height="30" HorizontalAlignment="Left" Margin="20,0,00,0"/>
+        <TextBlock Text="Дата рождения" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Right"  Margin="0,27,20,27" Height="16" Width="85"/>
+        <DatePicker Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Left" Width="200" Height="30" Margin="20,0,00,0"/>
+        <TextBlock Text="Адрес" Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Right"  Margin="0,25,20,24" Height="16" Width="33"/>
+        <TextBox Grid.Column="1" Grid.Row="2" x:Name="adres" Width="250" Height="30" HorizontalAlignment="Left" Margin="20,0,00,0"/>
+        <TextBlock Text="Телефон" Grid.Row="3" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Right"  Margin="0,22,20,21" Height="16" Width="47"/>
+        <TextBox Grid.Column="1" Grid.Row="3" x:Name="telefon" Width="200" Height="30" HorizontalAlignment="Left" Margin="20,0,00,0"/>
+        <TextBlock Text="Почта" Grid.Row="4" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Right"  Margin="0,27,20,27" Height="16" Width="33"/>
+        <TextBox Grid.Column="1" Grid.Row="4" x:Name="pocta" Width="200" Height="30" HorizontalAlignment="Left" Margin="20,0,00,0"/>
+
+        <TextBlock Text="Профессия" Grid.Row="5" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Right"  Margin="0,25,20,24" Height="16" Width="63"/>
+        <ComboBox Grid.Column="1" Grid.Row="5" x:Name="professija" Margin="10"/>
+        <TextBlock Text="Учубное заведение" Grid.Row="6" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Right"  Margin="0,10,20,12" Height="16" Width="106"/>
+        <ComboBox Grid.Column="1" Grid.Row="6" x:Name="Ucsavedenie" />
+        <Button x:Name="add" Click="add_Click" Grid.Column="2" Grid.Row="6" Content="Добавить"/>
+    </Grid> 
+</Page>

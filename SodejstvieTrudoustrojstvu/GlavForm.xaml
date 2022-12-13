@@ -1,0 +1,21 @@
+﻿<Page x:Class="Центр_занятости.SodejstvieTrudoustrojstvu.GlavForm"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Центр_занятости.SodejstvieTrudoustrojstvu"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="GlavForm">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="232*"/>
+            <ColumnDefinition Width="325*"/>
+            <ColumnDefinition Width="243*"/>
+        </Grid.ColumnDefinitions>
+        <Button Grid.Column="0" Content="Компании" VerticalAlignment="Center" HorizontalAlignment="Center" x:Name="perehKompanii" Click="perehKompanii_Click"/>
+        <Button Grid.Column="1" Content="Вакансии" VerticalAlignment="Center" HorizontalAlignment="Center" x:Name="perehPRosmiVacansii" Click="perehPRosmiVacansii_Click"/>
+    
+    </Grid>
+</Page>

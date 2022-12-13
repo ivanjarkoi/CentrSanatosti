@@ -1,0 +1,1036 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище jarkoiivanproizpracticaModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="BesRab">
+          <Key>
+            <PropertyRef Name="NomerFIO" />
+          </Key>
+          <Property Name="NomerFIO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FIO" Type="varchar" MaxLength="120" Nullable="false" />
+          <Property Name="DataRojdenia" Type="date" Nullable="false" />
+          <Property Name="AdresProjivania" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="Telefon" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="NomerProfessia" Type="int" Nullable="false" />
+          <Property Name="NomerUcrejdenieOrganisacia" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="GRafic">
+          <Key>
+            <PropertyRef Name="NomerGrafika" />
+          </Key>
+          <Property Name="NomerGrafika" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nacalo" Type="time" Precision="7" Nullable="false" />
+          <Property Name="Konec" Type="time" Precision="7" Nullable="false" />
+          <Property Name="VidGrafica" Type="int" Nullable="false" />
+          <Property Name="Tip_Graf" Type="int" />
+        </EntityType>
+        <EntityType Name="Komapania">
+          <Key>
+            <PropertyRef Name="NomerComapani" />
+          </Key>
+          <Property Name="NomerComapani" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NaimenovanieKratkoe" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="NaimenovaniePolnoe" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="Adres" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="Telefon" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Tip" Type="int" />
+        </EntityType>
+        <EntityType Name="Obrasavanie">
+          <Key>
+            <PropertyRef Name="NomerObrasovanie" />
+          </Key>
+          <Property Name="NomerObrasovanie" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Names" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="ObrasovanieProfessi">
+          <Key>
+            <PropertyRef Name="NomerProfObras" />
+          </Key>
+          <Property Name="NomerProfObras" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NomerUcrejdenieOrganisacia" Type="int" Nullable="false" />
+          <Property Name="NomerProfessia" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Professia">
+          <Key>
+            <PropertyRef Name="NomerProfessia" />
+          </Key>
+          <Property Name="NomerProfessia" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="ProfImeut">
+          <Key>
+            <PropertyRef Name="NomerProfImenut" />
+          </Key>
+          <Property Name="NomerProfImenut" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NomerFIO" Type="int" Nullable="false" />
+          <Property Name="NomerProfObras" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Rabotniki">
+          <Key>
+            <PropertyRef Name="Login" />
+          </Key>
+          <Property Name="Login" Type="varchar" MaxLength="300" Nullable="false" />
+          <Property Name="Parol" Type="varchar" MaxLength="300" Nullable="false" />
+          <Property Name="FIO" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="NOmerTelefona" Type="char" MaxLength="15" />
+          <Property Name="Fotografija" Type="varbinary(max)" />
+          <Property Name="DateRojdenia" Type="date" Nullable="false" />
+          <Property Name="Pocta" Type="varchar" MaxLength="50" />
+          <Property Name="RolRabotnikaNomre" Type="int" Nullable="false" />
+          <Property Name="NomerGrafika" Type="int" Nullable="false" />
+          <Property Name="Oplata" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RolRabotnicov">
+          <Key>
+            <PropertyRef Name="RolRabotnikaNomre" />
+          </Key>
+          <Property Name="RolRabotnikaNomre" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Naimenovanie" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="TipGrafik">
+          <Key>
+            <PropertyRef Name="Tip_Graf" />
+          </Key>
+          <Property Name="Tip_Graf" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Naimenovanie" Type="varchar" MaxLength="8" />
+        </EntityType>
+        <EntityType Name="TipORganisacii">
+          <Key>
+            <PropertyRef Name="Tip" />
+          </Key>
+          <Property Name="Tip" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Naimnovanie" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TipSanatosti">
+          <Key>
+            <PropertyRef Name="NomerRabocajaNedela" />
+          </Key>
+          <Property Name="NomerRabocajaNedela" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Names" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UcrejdenieObr">
+          <Key>
+            <PropertyRef Name="NomerUcrejdenieOrganisacia" />
+          </Key>
+          <Property Name="NomerUcrejdenieOrganisacia" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CratNaim" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="PolnNaim" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="Adres" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="NomerObrasovanie" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Vacansja">
+          <Key>
+            <PropertyRef Name="NomerVacansija" />
+          </Key>
+          <Property Name="NomerVacansija" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NomerProfessia" Type="int" Nullable="false" />
+          <Property Name="NomerRabocajaNedela" Type="int" Nullable="false" />
+          <Property Name="Oplata" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="NomerComapanii" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Vid_Grafika">
+          <Key>
+            <PropertyRef Name="VidGrafica" />
+          </Key>
+          <Property Name="VidGrafica" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nasvanie" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_BesRab_Professia1">
+          <End Role="Professia" Type="Self.Professia" Multiplicity="1" />
+          <End Role="BesRab" Type="Self.BesRab" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Professia">
+              <PropertyRef Name="NomerProfessia" />
+            </Principal>
+            <Dependent Role="BesRab">
+              <PropertyRef Name="NomerProfessia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BesRab_UcrejdenieObr1">
+          <End Role="UcrejdenieObr" Type="Self.UcrejdenieObr" Multiplicity="1" />
+          <End Role="BesRab" Type="Self.BesRab" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UcrejdenieObr">
+              <PropertyRef Name="NomerUcrejdenieOrganisacia" />
+            </Principal>
+            <Dependent Role="BesRab">
+              <PropertyRef Name="NomerUcrejdenieOrganisacia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GRafic_TipGrafik">
+          <End Role="TipGrafik" Type="Self.TipGrafik" Multiplicity="0..1" />
+          <End Role="GRafic" Type="Self.GRafic" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipGrafik">
+              <PropertyRef Name="Tip_Graf" />
+            </Principal>
+            <Dependent Role="GRafic">
+              <PropertyRef Name="Tip_Graf" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GRafic_Vid_Grafika">
+          <End Role="Vid_Grafika" Type="Self.Vid_Grafika" Multiplicity="1" />
+          <End Role="GRafic" Type="Self.GRafic" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vid_Grafika">
+              <PropertyRef Name="VidGrafica" />
+            </Principal>
+            <Dependent Role="GRafic">
+              <PropertyRef Name="VidGrafica" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Komapania_TipORganisacii">
+          <End Role="TipORganisacii" Type="Self.TipORganisacii" Multiplicity="0..1" />
+          <End Role="Komapania" Type="Self.Komapania" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipORganisacii">
+              <PropertyRef Name="Tip" />
+            </Principal>
+            <Dependent Role="Komapania">
+              <PropertyRef Name="Tip" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Polsovatel_RolRabotnicov">
+          <End Role="RolRabotnicov" Type="Self.RolRabotnicov" Multiplicity="1" />
+          <End Role="Rabotniki" Type="Self.Rabotniki" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RolRabotnicov">
+              <PropertyRef Name="RolRabotnikaNomre" />
+            </Principal>
+            <Dependent Role="Rabotniki">
+              <PropertyRef Name="RolRabotnikaNomre" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PRof_Obrasovanie_Professia">
+          <End Role="Professia" Type="Self.Professia" Multiplicity="1" />
+          <End Role="ObrasovanieProfessi" Type="Self.ObrasovanieProfessi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Professia">
+              <PropertyRef Name="NomerProfessia" />
+            </Principal>
+            <Dependent Role="ObrasovanieProfessi">
+              <PropertyRef Name="NomerProfessia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PRof_Obrasovanie_UcrejdenieObr">
+          <End Role="UcrejdenieObr" Type="Self.UcrejdenieObr" Multiplicity="1" />
+          <End Role="ObrasovanieProfessi" Type="Self.ObrasovanieProfessi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UcrejdenieObr">
+              <PropertyRef Name="NomerUcrejdenieOrganisacia" />
+            </Principal>
+            <Dependent Role="ObrasovanieProfessi">
+              <PropertyRef Name="NomerUcrejdenieOrganisacia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProfImeut_BesRab1">
+          <End Role="BesRab" Type="Self.BesRab" Multiplicity="1" />
+          <End Role="ProfImeut" Type="Self.ProfImeut" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BesRab">
+              <PropertyRef Name="NomerFIO" />
+            </Principal>
+            <Dependent Role="ProfImeut">
+              <PropertyRef Name="NomerFIO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProfImeut_ObrasovanieProfessi">
+          <End Role="ObrasovanieProfessi" Type="Self.ObrasovanieProfessi" Multiplicity="1" />
+          <End Role="ProfImeut" Type="Self.ProfImeut" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ObrasovanieProfessi">
+              <PropertyRef Name="NomerProfObras" />
+            </Principal>
+            <Dependent Role="ProfImeut">
+              <PropertyRef Name="NomerProfObras" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Rabotniki_GRafic">
+          <End Role="GRafic" Type="Self.GRafic" Multiplicity="1" />
+          <End Role="Rabotniki" Type="Self.Rabotniki" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GRafic">
+              <PropertyRef Name="NomerGrafika" />
+            </Principal>
+            <Dependent Role="Rabotniki">
+              <PropertyRef Name="NomerGrafika" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UcrejdenieObr_Obrasavanie">
+          <End Role="Obrasavanie" Type="Self.Obrasavanie" Multiplicity="1" />
+          <End Role="UcrejdenieObr" Type="Self.UcrejdenieObr" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Obrasavanie">
+              <PropertyRef Name="NomerObrasovanie" />
+            </Principal>
+            <Dependent Role="UcrejdenieObr">
+              <PropertyRef Name="NomerObrasovanie" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Vacansja_Komapania">
+          <End Role="Komapania" Type="Self.Komapania" Multiplicity="1" />
+          <End Role="Vacansja" Type="Self.Vacansja" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Komapania">
+              <PropertyRef Name="NomerComapani" />
+            </Principal>
+            <Dependent Role="Vacansja">
+              <PropertyRef Name="NomerComapanii" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Vacansja_Professia">
+          <End Role="Professia" Type="Self.Professia" Multiplicity="1" />
+          <End Role="Vacansja" Type="Self.Vacansja" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Professia">
+              <PropertyRef Name="NomerProfessia" />
+            </Principal>
+            <Dependent Role="Vacansja">
+              <PropertyRef Name="NomerProfessia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Vacansja_VremaRabot">
+          <End Role="TipSanatosti" Type="Self.TipSanatosti" Multiplicity="1" />
+          <End Role="Vacansja" Type="Self.Vacansja" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipSanatosti">
+              <PropertyRef Name="NomerRabocajaNedela" />
+            </Principal>
+            <Dependent Role="Vacansja">
+              <PropertyRef Name="NomerRabocajaNedela" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище jarkoiivanproizpracticaModelContainer">
+          <EntitySet Name="BesRab" EntityType="Self.BesRab" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GRafic" EntityType="Self.GRafic" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Komapania" EntityType="Self.Komapania" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Obrasavanie" EntityType="Self.Obrasavanie" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ObrasovanieProfessi" EntityType="Self.ObrasovanieProfessi" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Professia" EntityType="Self.Professia" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProfImeut" EntityType="Self.ProfImeut" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Rabotniki" EntityType="Self.Rabotniki" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RolRabotnicov" EntityType="Self.RolRabotnicov" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TipGrafik" EntityType="Self.TipGrafik" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TipORganisacii" EntityType="Self.TipORganisacii" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TipSanatosti" EntityType="Self.TipSanatosti" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UcrejdenieObr" EntityType="Self.UcrejdenieObr" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Vacansja" EntityType="Self.Vacansja" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Vid_Grafika" EntityType="Self.Vid_Grafika" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_BesRab_Professia1" Association="Self.FK_BesRab_Professia1">
+            <End Role="Professia" EntitySet="Professia" />
+            <End Role="BesRab" EntitySet="BesRab" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BesRab_UcrejdenieObr1" Association="Self.FK_BesRab_UcrejdenieObr1">
+            <End Role="UcrejdenieObr" EntitySet="UcrejdenieObr" />
+            <End Role="BesRab" EntitySet="BesRab" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GRafic_TipGrafik" Association="Self.FK_GRafic_TipGrafik">
+            <End Role="TipGrafik" EntitySet="TipGrafik" />
+            <End Role="GRafic" EntitySet="GRafic" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GRafic_Vid_Grafika" Association="Self.FK_GRafic_Vid_Grafika">
+            <End Role="Vid_Grafika" EntitySet="Vid_Grafika" />
+            <End Role="GRafic" EntitySet="GRafic" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Komapania_TipORganisacii" Association="Self.FK_Komapania_TipORganisacii">
+            <End Role="TipORganisacii" EntitySet="TipORganisacii" />
+            <End Role="Komapania" EntitySet="Komapania" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Polsovatel_RolRabotnicov" Association="Self.FK_Polsovatel_RolRabotnicov">
+            <End Role="RolRabotnicov" EntitySet="RolRabotnicov" />
+            <End Role="Rabotniki" EntitySet="Rabotniki" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PRof_Obrasovanie_Professia" Association="Self.FK_PRof_Obrasovanie_Professia">
+            <End Role="Professia" EntitySet="Professia" />
+            <End Role="ObrasovanieProfessi" EntitySet="ObrasovanieProfessi" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PRof_Obrasovanie_UcrejdenieObr" Association="Self.FK_PRof_Obrasovanie_UcrejdenieObr">
+            <End Role="UcrejdenieObr" EntitySet="UcrejdenieObr" />
+            <End Role="ObrasovanieProfessi" EntitySet="ObrasovanieProfessi" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProfImeut_BesRab1" Association="Self.FK_ProfImeut_BesRab1">
+            <End Role="BesRab" EntitySet="BesRab" />
+            <End Role="ProfImeut" EntitySet="ProfImeut" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProfImeut_ObrasovanieProfessi" Association="Self.FK_ProfImeut_ObrasovanieProfessi">
+            <End Role="ObrasovanieProfessi" EntitySet="ObrasovanieProfessi" />
+            <End Role="ProfImeut" EntitySet="ProfImeut" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Rabotniki_GRafic" Association="Self.FK_Rabotniki_GRafic">
+            <End Role="GRafic" EntitySet="GRafic" />
+            <End Role="Rabotniki" EntitySet="Rabotniki" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UcrejdenieObr_Obrasavanie" Association="Self.FK_UcrejdenieObr_Obrasavanie">
+            <End Role="Obrasavanie" EntitySet="Obrasavanie" />
+            <End Role="UcrejdenieObr" EntitySet="UcrejdenieObr" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Vacansja_Komapania" Association="Self.FK_Vacansja_Komapania">
+            <End Role="Komapania" EntitySet="Komapania" />
+            <End Role="Vacansja" EntitySet="Vacansja" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Vacansja_Professia" Association="Self.FK_Vacansja_Professia">
+            <End Role="Professia" EntitySet="Professia" />
+            <End Role="Vacansja" EntitySet="Vacansja" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Vacansja_VremaRabot" Association="Self.FK_Vacansja_VremaRabot">
+            <End Role="TipSanatosti" EntitySet="TipSanatosti" />
+            <End Role="Vacansja" EntitySet="Vacansja" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="jarkoiivanproizpracticaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="BesRab">
+          <Key>
+            <PropertyRef Name="NomerFIO" />
+          </Key>
+          <Property Name="NomerFIO" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FIO" Type="String" MaxLength="120" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DataRojdenia" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="AdresProjivania" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Telefon" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NomerProfessia" Type="Int32" Nullable="false" />
+          <Property Name="NomerUcrejdenieOrganisacia" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Professia" Relationship="Self.FK_BesRab_Professia1" FromRole="BesRab" ToRole="Professia" />
+          <NavigationProperty Name="UcrejdenieObr" Relationship="Self.FK_BesRab_UcrejdenieObr1" FromRole="BesRab" ToRole="UcrejdenieObr" />
+          <NavigationProperty Name="ProfImeuts" Relationship="Self.FK_ProfImeut_BesRab1" FromRole="BesRab" ToRole="ProfImeut" />
+        </EntityType>
+        <EntityType Name="GRafic">
+          <Key>
+            <PropertyRef Name="NomerGrafika" />
+          </Key>
+          <Property Name="NomerGrafika" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nacalo" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="Konec" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="VidGrafica" Type="Int32" Nullable="false" />
+          <Property Name="Tip_Graf" Type="Int32" />
+          <NavigationProperty Name="TipGrafik" Relationship="Self.FK_GRafic_TipGrafik" FromRole="GRafic" ToRole="TipGrafik" />
+          <NavigationProperty Name="Vid_Grafika" Relationship="Self.FK_GRafic_Vid_Grafika" FromRole="GRafic" ToRole="Vid_Grafika" />
+          <NavigationProperty Name="Rabotnikis" Relationship="Self.FK_Rabotniki_GRafic" FromRole="GRafic" ToRole="Rabotniki" />
+        </EntityType>
+        <EntityType Name="Komapania">
+          <Key>
+            <PropertyRef Name="NomerComapani" />
+          </Key>
+          <Property Name="NomerComapani" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NaimenovanieKratkoe" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NaimenovaniePolnoe" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Adres" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Telefon" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Tip" Type="Int32" />
+          <NavigationProperty Name="TipORganisacii" Relationship="Self.FK_Komapania_TipORganisacii" FromRole="Komapania" ToRole="TipORganisacii" />
+          <NavigationProperty Name="Vacansjas" Relationship="Self.FK_Vacansja_Komapania" FromRole="Komapania" ToRole="Vacansja" />
+        </EntityType>
+        <EntityType Name="Obrasavanie">
+          <Key>
+            <PropertyRef Name="NomerObrasovanie" />
+          </Key>
+          <Property Name="NomerObrasovanie" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Names" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="UcrejdenieObrs" Relationship="Self.FK_UcrejdenieObr_Obrasavanie" FromRole="Obrasavanie" ToRole="UcrejdenieObr" />
+        </EntityType>
+        <EntityType Name="ObrasovanieProfessi">
+          <Key>
+            <PropertyRef Name="NomerProfObras" />
+          </Key>
+          <Property Name="NomerProfObras" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NomerUcrejdenieOrganisacia" Type="Int32" Nullable="false" />
+          <Property Name="NomerProfessia" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Professia" Relationship="Self.FK_PRof_Obrasovanie_Professia" FromRole="ObrasovanieProfessi" ToRole="Professia" />
+          <NavigationProperty Name="UcrejdenieObr" Relationship="Self.FK_PRof_Obrasovanie_UcrejdenieObr" FromRole="ObrasovanieProfessi" ToRole="UcrejdenieObr" />
+          <NavigationProperty Name="ProfImeuts" Relationship="Self.FK_ProfImeut_ObrasovanieProfessi" FromRole="ObrasovanieProfessi" ToRole="ProfImeut" />
+        </EntityType>
+        <EntityType Name="Professia">
+          <Key>
+            <PropertyRef Name="NomerProfessia" />
+          </Key>
+          <Property Name="NomerProfessia" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="BesRabs" Relationship="Self.FK_BesRab_Professia1" FromRole="Professia" ToRole="BesRab" />
+          <NavigationProperty Name="ObrasovanieProfessis" Relationship="Self.FK_PRof_Obrasovanie_Professia" FromRole="Professia" ToRole="ObrasovanieProfessi" />
+          <NavigationProperty Name="Vacansjas" Relationship="Self.FK_Vacansja_Professia" FromRole="Professia" ToRole="Vacansja" />
+        </EntityType>
+        <EntityType Name="ProfImeut">
+          <Key>
+            <PropertyRef Name="NomerProfImenut" />
+          </Key>
+          <Property Name="NomerProfImenut" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NomerFIO" Type="Int32" Nullable="false" />
+          <Property Name="NomerProfObras" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="BesRab" Relationship="Self.FK_ProfImeut_BesRab1" FromRole="ProfImeut" ToRole="BesRab" />
+          <NavigationProperty Name="ObrasovanieProfessi" Relationship="Self.FK_ProfImeut_ObrasovanieProfessi" FromRole="ProfImeut" ToRole="ObrasovanieProfessi" />
+        </EntityType>
+        <EntityType Name="Rabotniki">
+          <Key>
+            <PropertyRef Name="Login" />
+          </Key>
+          <Property Name="Login" Type="String" MaxLength="300" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Parol" Type="String" MaxLength="300" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FIO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NOmerTelefona" Type="String" MaxLength="15" FixedLength="true" Unicode="false" />
+          <Property Name="Fotografija" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="DateRojdenia" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Pocta" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="RolRabotnikaNomre" Type="Int32" Nullable="false" />
+          <Property Name="NomerGrafika" Type="Int32" Nullable="false" />
+          <Property Name="Oplata" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="GRafic" Relationship="Self.FK_Rabotniki_GRafic" FromRole="Rabotniki" ToRole="GRafic" />
+          <NavigationProperty Name="RolRabotnicov" Relationship="Self.FK_Polsovatel_RolRabotnicov" FromRole="Rabotniki" ToRole="RolRabotnicov" />
+        </EntityType>
+        <EntityType Name="RolRabotnicov">
+          <Key>
+            <PropertyRef Name="RolRabotnikaNomre" />
+          </Key>
+          <Property Name="RolRabotnikaNomre" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Naimenovanie" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Rabotnikis" Relationship="Self.FK_Polsovatel_RolRabotnicov" FromRole="RolRabotnicov" ToRole="Rabotniki" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="TipGrafik">
+          <Key>
+            <PropertyRef Name="Tip_Graf" />
+          </Key>
+          <Property Name="Tip_Graf" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Naimenovanie" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="GRafics" Relationship="Self.FK_GRafic_TipGrafik" FromRole="TipGrafik" ToRole="GRafic" />
+        </EntityType>
+        <EntityType Name="TipORganisacii">
+          <Key>
+            <PropertyRef Name="Tip" />
+          </Key>
+          <Property Name="Tip" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Naimnovanie" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Komapanias" Relationship="Self.FK_Komapania_TipORganisacii" FromRole="TipORganisacii" ToRole="Komapania" />
+        </EntityType>
+        <EntityType Name="TipSanatosti">
+          <Key>
+            <PropertyRef Name="NomerRabocajaNedela" />
+          </Key>
+          <Property Name="NomerRabocajaNedela" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Names" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Vacansjas" Relationship="Self.FK_Vacansja_VremaRabot" FromRole="TipSanatosti" ToRole="Vacansja" />
+        </EntityType>
+        <EntityType Name="UcrejdenieObr">
+          <Key>
+            <PropertyRef Name="NomerUcrejdenieOrganisacia" />
+          </Key>
+          <Property Name="NomerUcrejdenieOrganisacia" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CratNaim" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PolnNaim" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Adres" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NomerObrasovanie" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="BesRabs" Relationship="Self.FK_BesRab_UcrejdenieObr1" FromRole="UcrejdenieObr" ToRole="BesRab" />
+          <NavigationProperty Name="Obrasavanie" Relationship="Self.FK_UcrejdenieObr_Obrasavanie" FromRole="UcrejdenieObr" ToRole="Obrasavanie" />
+          <NavigationProperty Name="ObrasovanieProfessis" Relationship="Self.FK_PRof_Obrasovanie_UcrejdenieObr" FromRole="UcrejdenieObr" ToRole="ObrasovanieProfessi" />
+        </EntityType>
+        <EntityType Name="Vacansja">
+          <Key>
+            <PropertyRef Name="NomerVacansija" />
+          </Key>
+          <Property Name="NomerVacansija" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NomerProfessia" Type="Int32" Nullable="false" />
+          <Property Name="NomerRabocajaNedela" Type="Int32" Nullable="false" />
+          <Property Name="Oplata" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="NomerComapanii" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Komapania" Relationship="Self.FK_Vacansja_Komapania" FromRole="Vacansja" ToRole="Komapania" />
+          <NavigationProperty Name="Professia" Relationship="Self.FK_Vacansja_Professia" FromRole="Vacansja" ToRole="Professia" />
+          <NavigationProperty Name="TipSanatosti" Relationship="Self.FK_Vacansja_VremaRabot" FromRole="Vacansja" ToRole="TipSanatosti" />
+        </EntityType>
+        <EntityType Name="Vid_Grafika">
+          <Key>
+            <PropertyRef Name="VidGrafica" />
+          </Key>
+          <Property Name="VidGrafica" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nasvanie" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="GRafics" Relationship="Self.FK_GRafic_Vid_Grafika" FromRole="Vid_Grafika" ToRole="GRafic" />
+        </EntityType>
+        <Association Name="FK_BesRab_Professia1">
+          <End Role="Professia" Type="Self.Professia" Multiplicity="1" />
+          <End Role="BesRab" Type="Self.BesRab" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Professia">
+              <PropertyRef Name="NomerProfessia" />
+            </Principal>
+            <Dependent Role="BesRab">
+              <PropertyRef Name="NomerProfessia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BesRab_UcrejdenieObr1">
+          <End Role="UcrejdenieObr" Type="Self.UcrejdenieObr" Multiplicity="1" />
+          <End Role="BesRab" Type="Self.BesRab" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UcrejdenieObr">
+              <PropertyRef Name="NomerUcrejdenieOrganisacia" />
+            </Principal>
+            <Dependent Role="BesRab">
+              <PropertyRef Name="NomerUcrejdenieOrganisacia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProfImeut_BesRab1">
+          <End Role="BesRab" Type="Self.BesRab" Multiplicity="1" />
+          <End Role="ProfImeut" Type="Self.ProfImeut" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BesRab">
+              <PropertyRef Name="NomerFIO" />
+            </Principal>
+            <Dependent Role="ProfImeut">
+              <PropertyRef Name="NomerFIO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GRafic_TipGrafik">
+          <End Role="TipGrafik" Type="Self.TipGrafik" Multiplicity="0..1" />
+          <End Role="GRafic" Type="Self.GRafic" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipGrafik">
+              <PropertyRef Name="Tip_Graf" />
+            </Principal>
+            <Dependent Role="GRafic">
+              <PropertyRef Name="Tip_Graf" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GRafic_Vid_Grafika">
+          <End Role="Vid_Grafika" Type="Self.Vid_Grafika" Multiplicity="1" />
+          <End Role="GRafic" Type="Self.GRafic" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vid_Grafika">
+              <PropertyRef Name="VidGrafica" />
+            </Principal>
+            <Dependent Role="GRafic">
+              <PropertyRef Name="VidGrafica" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Rabotniki_GRafic">
+          <End Role="GRafic" Type="Self.GRafic" Multiplicity="1" />
+          <End Role="Rabotniki" Type="Self.Rabotniki" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GRafic">
+              <PropertyRef Name="NomerGrafika" />
+            </Principal>
+            <Dependent Role="Rabotniki">
+              <PropertyRef Name="NomerGrafika" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Komapania_TipORganisacii">
+          <End Role="TipORganisacii" Type="Self.TipORganisacii" Multiplicity="0..1" />
+          <End Role="Komapania" Type="Self.Komapania" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipORganisacii">
+              <PropertyRef Name="Tip" />
+            </Principal>
+            <Dependent Role="Komapania">
+              <PropertyRef Name="Tip" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Vacansja_Komapania">
+          <End Role="Komapania" Type="Self.Komapania" Multiplicity="1" />
+          <End Role="Vacansja" Type="Self.Vacansja" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Komapania">
+              <PropertyRef Name="NomerComapani" />
+            </Principal>
+            <Dependent Role="Vacansja">
+              <PropertyRef Name="NomerComapanii" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UcrejdenieObr_Obrasavanie">
+          <End Role="Obrasavanie" Type="Self.Obrasavanie" Multiplicity="1" />
+          <End Role="UcrejdenieObr" Type="Self.UcrejdenieObr" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Obrasavanie">
+              <PropertyRef Name="NomerObrasovanie" />
+            </Principal>
+            <Dependent Role="UcrejdenieObr">
+              <PropertyRef Name="NomerObrasovanie" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PRof_Obrasovanie_Professia">
+          <End Role="Professia" Type="Self.Professia" Multiplicity="1" />
+          <End Role="ObrasovanieProfessi" Type="Self.ObrasovanieProfessi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Professia">
+              <PropertyRef Name="NomerProfessia" />
+            </Principal>
+            <Dependent Role="ObrasovanieProfessi">
+              <PropertyRef Name="NomerProfessia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PRof_Obrasovanie_UcrejdenieObr">
+          <End Role="UcrejdenieObr" Type="Self.UcrejdenieObr" Multiplicity="1" />
+          <End Role="ObrasovanieProfessi" Type="Self.ObrasovanieProfessi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UcrejdenieObr">
+              <PropertyRef Name="NomerUcrejdenieOrganisacia" />
+            </Principal>
+            <Dependent Role="ObrasovanieProfessi">
+              <PropertyRef Name="NomerUcrejdenieOrganisacia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProfImeut_ObrasovanieProfessi">
+          <End Role="ObrasovanieProfessi" Type="Self.ObrasovanieProfessi" Multiplicity="1" />
+          <End Role="ProfImeut" Type="Self.ProfImeut" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ObrasovanieProfessi">
+              <PropertyRef Name="NomerProfObras" />
+            </Principal>
+            <Dependent Role="ProfImeut">
+              <PropertyRef Name="NomerProfObras" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Vacansja_Professia">
+          <End Role="Professia" Type="Self.Professia" Multiplicity="1" />
+          <End Role="Vacansja" Type="Self.Vacansja" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Professia">
+              <PropertyRef Name="NomerProfessia" />
+            </Principal>
+            <Dependent Role="Vacansja">
+              <PropertyRef Name="NomerProfessia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Polsovatel_RolRabotnicov">
+          <End Role="RolRabotnicov" Type="Self.RolRabotnicov" Multiplicity="1" />
+          <End Role="Rabotniki" Type="Self.Rabotniki" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RolRabotnicov">
+              <PropertyRef Name="RolRabotnikaNomre" />
+            </Principal>
+            <Dependent Role="Rabotniki">
+              <PropertyRef Name="RolRabotnikaNomre" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Vacansja_VremaRabot">
+          <End Role="TipSanatosti" Type="Self.TipSanatosti" Multiplicity="1" />
+          <End Role="Vacansja" Type="Self.Vacansja" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipSanatosti">
+              <PropertyRef Name="NomerRabocajaNedela" />
+            </Principal>
+            <Dependent Role="Vacansja">
+              <PropertyRef Name="NomerRabocajaNedela" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Entities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="BesRabs" EntityType="Self.BesRab" />
+          <EntitySet Name="GRafics" EntityType="Self.GRafic" />
+          <EntitySet Name="Komapanias" EntityType="Self.Komapania" />
+          <EntitySet Name="Obrasavanies" EntityType="Self.Obrasavanie" />
+          <EntitySet Name="ObrasovanieProfessis" EntityType="Self.ObrasovanieProfessi" />
+          <EntitySet Name="Professias" EntityType="Self.Professia" />
+          <EntitySet Name="ProfImeuts" EntityType="Self.ProfImeut" />
+          <EntitySet Name="Rabotnikis" EntityType="Self.Rabotniki" />
+          <EntitySet Name="RolRabotnicovs" EntityType="Self.RolRabotnicov" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="TipGrafiks" EntityType="Self.TipGrafik" />
+          <EntitySet Name="TipORganisaciis" EntityType="Self.TipORganisacii" />
+          <EntitySet Name="TipSanatostis" EntityType="Self.TipSanatosti" />
+          <EntitySet Name="UcrejdenieObrs" EntityType="Self.UcrejdenieObr" />
+          <EntitySet Name="Vacansjas" EntityType="Self.Vacansja" />
+          <EntitySet Name="Vid_Grafika" EntityType="Self.Vid_Grafika" />
+          <AssociationSet Name="FK_BesRab_Professia1" Association="Self.FK_BesRab_Professia1">
+            <End Role="Professia" EntitySet="Professias" />
+            <End Role="BesRab" EntitySet="BesRabs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BesRab_UcrejdenieObr1" Association="Self.FK_BesRab_UcrejdenieObr1">
+            <End Role="UcrejdenieObr" EntitySet="UcrejdenieObrs" />
+            <End Role="BesRab" EntitySet="BesRabs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProfImeut_BesRab1" Association="Self.FK_ProfImeut_BesRab1">
+            <End Role="BesRab" EntitySet="BesRabs" />
+            <End Role="ProfImeut" EntitySet="ProfImeuts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GRafic_TipGrafik" Association="Self.FK_GRafic_TipGrafik">
+            <End Role="TipGrafik" EntitySet="TipGrafiks" />
+            <End Role="GRafic" EntitySet="GRafics" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GRafic_Vid_Grafika" Association="Self.FK_GRafic_Vid_Grafika">
+            <End Role="Vid_Grafika" EntitySet="Vid_Grafika" />
+            <End Role="GRafic" EntitySet="GRafics" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Rabotniki_GRafic" Association="Self.FK_Rabotniki_GRafic">
+            <End Role="GRafic" EntitySet="GRafics" />
+            <End Role="Rabotniki" EntitySet="Rabotnikis" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Komapania_TipORganisacii" Association="Self.FK_Komapania_TipORganisacii">
+            <End Role="TipORganisacii" EntitySet="TipORganisaciis" />
+            <End Role="Komapania" EntitySet="Komapanias" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Vacansja_Komapania" Association="Self.FK_Vacansja_Komapania">
+            <End Role="Komapania" EntitySet="Komapanias" />
+            <End Role="Vacansja" EntitySet="Vacansjas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UcrejdenieObr_Obrasavanie" Association="Self.FK_UcrejdenieObr_Obrasavanie">
+            <End Role="Obrasavanie" EntitySet="Obrasavanies" />
+            <End Role="UcrejdenieObr" EntitySet="UcrejdenieObrs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PRof_Obrasovanie_Professia" Association="Self.FK_PRof_Obrasovanie_Professia">
+            <End Role="Professia" EntitySet="Professias" />
+            <End Role="ObrasovanieProfessi" EntitySet="ObrasovanieProfessis" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PRof_Obrasovanie_UcrejdenieObr" Association="Self.FK_PRof_Obrasovanie_UcrejdenieObr">
+            <End Role="UcrejdenieObr" EntitySet="UcrejdenieObrs" />
+            <End Role="ObrasovanieProfessi" EntitySet="ObrasovanieProfessis" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProfImeut_ObrasovanieProfessi" Association="Self.FK_ProfImeut_ObrasovanieProfessi">
+            <End Role="ObrasovanieProfessi" EntitySet="ObrasovanieProfessis" />
+            <End Role="ProfImeut" EntitySet="ProfImeuts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Vacansja_Professia" Association="Self.FK_Vacansja_Professia">
+            <End Role="Professia" EntitySet="Professias" />
+            <End Role="Vacansja" EntitySet="Vacansjas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Polsovatel_RolRabotnicov" Association="Self.FK_Polsovatel_RolRabotnicov">
+            <End Role="RolRabotnicov" EntitySet="RolRabotnicovs" />
+            <End Role="Rabotniki" EntitySet="Rabotnikis" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Vacansja_VremaRabot" Association="Self.FK_Vacansja_VremaRabot">
+            <End Role="TipSanatosti" EntitySet="TipSanatostis" />
+            <End Role="Vacansja" EntitySet="Vacansjas" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище jarkoiivanproizpracticaModelContainer" CdmEntityContainer="Entities1">
+          <EntitySetMapping Name="BesRabs">
+            <EntityTypeMapping TypeName="jarkoiivanproizpracticaModel.BesRab">
+              <MappingFragment StoreEntitySet="BesRab">
+                <ScalarProperty Name="NomerFIO" ColumnName="NomerFIO" />
+                <ScalarProperty Name="FIO" ColumnName="FIO" />
+                <ScalarProperty Name="DataRojdenia" ColumnName="DataRojdenia" />
+                <ScalarProperty Name="AdresProjivania" ColumnName="AdresProjivania" />
+                <ScalarProperty Name="Telefon" ColumnName="Telefon" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="NomerProfessia" ColumnName="NomerProfessia" />
+                <ScalarProperty Name="NomerUcrejdenieOrganisacia" ColumnName="NomerUcrejdenieOrganisacia" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GRafics">
+            <EntityTypeMapping TypeName="jarkoiivanproizpracticaModel.GRafic">
+              <MappingFragment StoreEntitySet="GRafic">
+                <ScalarProperty Name="NomerGrafika" ColumnName="NomerGrafika" />
+                <ScalarProperty Name="Nacalo" ColumnName="Nacalo" />
+                <ScalarProperty Name="Konec" ColumnName="Konec" />
+                <ScalarProperty Name="VidGrafica" ColumnName="VidGrafica" />
+                <ScalarProperty Name="Tip_Graf" ColumnName="Tip_Graf" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Komapanias">
+            <EntityTypeMapping TypeName="jarkoiivanproizpracticaModel.Komapania">
+              <MappingFragment StoreEntitySet="Komapania">
+                <ScalarProperty Name="NomerComapani" ColumnName="NomerComapani" />
+                <ScalarProperty Name="NaimenovanieKratkoe" ColumnName="NaimenovanieKratkoe" />
+                <ScalarProperty Name="NaimenovaniePolnoe" ColumnName="NaimenovaniePolnoe" />
+                <ScalarProperty Name="Adres" ColumnName="Adres" />
+                <ScalarProperty Name="Telefon" ColumnName="Telefon" />
+                <ScalarProperty Name="Tip" ColumnName="Tip" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Obrasavanies">
+            <EntityTypeMapping TypeName="jarkoiivanproizpracticaModel.Obrasavanie">
+              <MappingFragment StoreEntitySet="Obrasavanie">
+                <ScalarProperty Name="NomerObrasovanie" ColumnName="NomerObrasovanie" />
+                <ScalarProperty Name="Names" ColumnName="Names" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ObrasovanieProfessis">
+            <EntityTypeMapping TypeName="jarkoiivanproizpracticaModel.ObrasovanieProfessi">
+              <MappingFragment StoreEntitySet="ObrasovanieProfessi">
+                <ScalarProperty Name="NomerProfObras" ColumnName="NomerProfObras" />
+                <ScalarProperty Name="NomerUcrejdenieOrganisacia" ColumnName="NomerUcrejdenieOrganisacia" />
+                <ScalarProperty Name="NomerProfessia" ColumnName="NomerProfessia" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Professias">
+            <EntityTypeMapping TypeName="jarkoiivanproizpracticaModel.Professia">
+              <MappingFragment StoreEntitySet="Professia">
+                <ScalarProperty Name="NomerProfessia" ColumnName="NomerProfessia" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProfImeuts">
+            <EntityTypeMapping TypeName="jarkoiivanproizpracticaModel.ProfImeut">
+              <MappingFragment StoreEntitySet="ProfImeut">
+                <ScalarProperty Name="NomerProfImenut" ColumnName="NomerProfImenut" />
+                <ScalarProperty Name="NomerFIO" ColumnName="NomerFIO" />
+                <ScalarProperty Name="NomerProfObras" ColumnName="NomerProfObras" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Rabotnikis">
+            <EntityTypeMapping TypeName="jarkoiivanproizpracticaModel.Rabotniki">
+              <MappingFragment StoreEntitySet="Rabotniki">
+                <ScalarProperty Name="Login" ColumnName="Login" />
+                <ScalarProperty Name="Parol" ColumnName="Parol" />
+                <ScalarProperty Name="FIO" ColumnName="FIO" />
+                <ScalarProperty Name="NOmerTelefona" ColumnName="NOmerTelefona" />
+                <ScalarProperty Name="Fotografija" ColumnName="Fotografija" />
+                <ScalarProperty Name="DateRojdenia" ColumnName="DateRojdenia" />
+                <ScalarProperty Name="Pocta" ColumnName="Pocta" />
+                <ScalarProperty Name="RolRabotnikaNomre" ColumnName="RolRabotnikaNomre" />
+                <ScalarProperty Name="NomerGrafika" ColumnName="NomerGrafika" />
+                <ScalarProperty Name="Oplata" ColumnName="Oplata" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RolRabotnicovs">
+            <EntityTypeMapping TypeName="jarkoiivanproizpracticaModel.RolRabotnicov">
+              <MappingFragment StoreEntitySet="RolRabotnicov">
+                <ScalarProperty Name="RolRabotnikaNomre" ColumnName="RolRabotnikaNomre" />
+                <ScalarProperty Name="Naimenovanie" ColumnName="Naimenovanie" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="jarkoiivanproizpracticaModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TipGrafiks">
+            <EntityTypeMapping TypeName="jarkoiivanproizpracticaModel.TipGrafik">
+              <MappingFragment StoreEntitySet="TipGrafik">
+                <ScalarProperty Name="Tip_Graf" ColumnName="Tip_Graf" />
+                <ScalarProperty Name="Naimenovanie" ColumnName="Naimenovanie" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TipORganisaciis">
+            <EntityTypeMapping TypeName="jarkoiivanproizpracticaModel.TipORganisacii">
+              <MappingFragment StoreEntitySet="TipORganisacii">
+                <ScalarProperty Name="Tip" ColumnName="Tip" />
+                <ScalarProperty Name="Naimnovanie" ColumnName="Naimnovanie" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TipSanatostis">
+            <EntityTypeMapping TypeName="jarkoiivanproizpracticaModel.TipSanatosti">
+              <MappingFragment StoreEntitySet="TipSanatosti">
+                <ScalarProperty Name="NomerRabocajaNedela" ColumnName="NomerRabocajaNedela" />
+                <ScalarProperty Name="Names" ColumnName="Names" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UcrejdenieObrs">
+            <EntityTypeMapping TypeName="jarkoiivanproizpracticaModel.UcrejdenieObr">
+              <MappingFragment StoreEntitySet="UcrejdenieObr">
+                <ScalarProperty Name="NomerUcrejdenieOrganisacia" ColumnName="NomerUcrejdenieOrganisacia" />
+                <ScalarProperty Name="CratNaim" ColumnName="CratNaim" />
+                <ScalarProperty Name="PolnNaim" ColumnName="PolnNaim" />
+                <ScalarProperty Name="Adres" ColumnName="Adres" />
+                <ScalarProperty Name="NomerObrasovanie" ColumnName="NomerObrasovanie" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Vacansjas">
+            <EntityTypeMapping TypeName="jarkoiivanproizpracticaModel.Vacansja">
+              <MappingFragment StoreEntitySet="Vacansja">
+                <ScalarProperty Name="NomerVacansija" ColumnName="NomerVacansija" />
+                <ScalarProperty Name="NomerProfessia" ColumnName="NomerProfessia" />
+                <ScalarProperty Name="NomerRabocajaNedela" ColumnName="NomerRabocajaNedela" />
+                <ScalarProperty Name="Oplata" ColumnName="Oplata" />
+                <ScalarProperty Name="NomerComapanii" ColumnName="NomerComapanii" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Vid_Grafika">
+            <EntityTypeMapping TypeName="jarkoiivanproizpracticaModel.Vid_Grafika">
+              <MappingFragment StoreEntitySet="Vid_Grafika">
+                <ScalarProperty Name="VidGrafica" ColumnName="VidGrafica" />
+                <ScalarProperty Name="Nasvanie" ColumnName="Nasvanie" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="1c2d25689cd942af9325985910ab0f9a" Name="Diagram1">
+        <EntityTypeShape EntityType="jarkoiivanproizpracticaModel.BesRab" Width="1.5" PointX="3" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="jarkoiivanproizpracticaModel.GRafic" Width="1.5" PointX="6" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="jarkoiivanproizpracticaModel.Komapania" Width="1.5" PointX="0.75" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="jarkoiivanproizpracticaModel.Obrasavanie" Width="1.5" PointX="1.5" PointY="18.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="jarkoiivanproizpracticaModel.ObrasovanieProfessi" Width="1.5" PointX="6" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="jarkoiivanproizpracticaModel.Professia" Width="1.5" PointX="0.75" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="jarkoiivanproizpracticaModel.ProfImeut" Width="1.5" PointX="8.25" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="jarkoiivanproizpracticaModel.Rabotniki" Width="1.5" PointX="8.25" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="jarkoiivanproizpracticaModel.RolRabotnicov" Width="1.5" PointX="6" PointY="12.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="jarkoiivanproizpracticaModel.sysdiagram" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="jarkoiivanproizpracticaModel.TipGrafik" Width="1.5" PointX="3.75" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="jarkoiivanproizpracticaModel.TipORganisacii" Width="1.5" PointX="1.5" PointY="11.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="jarkoiivanproizpracticaModel.TipSanatosti" Width="1.5" PointX="0.75" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="jarkoiivanproizpracticaModel.UcrejdenieObr" Width="1.5" PointX="0.75" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="jarkoiivanproizpracticaModel.Vacansja" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="jarkoiivanproizpracticaModel.Vid_Grafika" Width="1.5" PointX="3.75" PointY="12.875" IsExpanded="true" />
+        <AssociationConnector Association="jarkoiivanproizpracticaModel.FK_BesRab_Professia1" ManuallyRouted="false" />
+        <AssociationConnector Association="jarkoiivanproizpracticaModel.FK_BesRab_UcrejdenieObr1" ManuallyRouted="false" />
+        <AssociationConnector Association="jarkoiivanproizpracticaModel.FK_ProfImeut_BesRab1" ManuallyRouted="false" />
+        <AssociationConnector Association="jarkoiivanproizpracticaModel.FK_GRafic_TipGrafik" ManuallyRouted="false" />
+        <AssociationConnector Association="jarkoiivanproizpracticaModel.FK_GRafic_Vid_Grafika" ManuallyRouted="false" />
+        <AssociationConnector Association="jarkoiivanproizpracticaModel.FK_Rabotniki_GRafic" ManuallyRouted="false" />
+        <AssociationConnector Association="jarkoiivanproizpracticaModel.FK_Komapania_TipORganisacii" ManuallyRouted="false" />
+        <AssociationConnector Association="jarkoiivanproizpracticaModel.FK_Vacansja_Komapania" ManuallyRouted="false" />
+        <AssociationConnector Association="jarkoiivanproizpracticaModel.FK_UcrejdenieObr_Obrasavanie" ManuallyRouted="false" />
+        <AssociationConnector Association="jarkoiivanproizpracticaModel.FK_PRof_Obrasovanie_Professia" ManuallyRouted="false" />
+        <AssociationConnector Association="jarkoiivanproizpracticaModel.FK_PRof_Obrasovanie_UcrejdenieObr" ManuallyRouted="false" />
+        <AssociationConnector Association="jarkoiivanproizpracticaModel.FK_ProfImeut_ObrasovanieProfessi" ManuallyRouted="false" />
+        <AssociationConnector Association="jarkoiivanproizpracticaModel.FK_Vacansja_Professia" ManuallyRouted="false" />
+        <AssociationConnector Association="jarkoiivanproizpracticaModel.FK_Polsovatel_RolRabotnicov" ManuallyRouted="false" />
+        <AssociationConnector Association="jarkoiivanproizpracticaModel.FK_Vacansja_VremaRabot" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
